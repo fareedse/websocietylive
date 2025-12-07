@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Web Society</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    .glass { backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center relative" 
+      style="background-image: url('https://images.unsplash.com/photo-1562778612-c6005d5e46a3?w=1920&q=90');">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 max-w-2xl w-full mx-4">
+    <!-- Back to Home Button -->
+    <a href="index.html" class="absolute -top-20 left-0 text-white hover:text-yellow-400 flex items-center gap-2 text-lg">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="text-center mb-12">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">
+        Join <span class="text-yellow-400"></span> Web Society
+      </h1>
+      <p class="text-xl text-gray-200">Become part of the most active tech community on campus!</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="bg-white/10 glass rounded-3xl shadow-2xl p-10 border border-white/20">
+      <form   action="https://formspree.io/f/mdkqlngo"
+  method="POST" class="space-y-8">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <input type="text" name="name" placeholder="Full Name" required
+                 class="w-full px-6 py-5 rounded-xl bg-white/20 text-white placeholder-gray-300 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-400 transition"/>
+
+          <input type="text" name="semester" placeholder="Semester (e.g. 5th)" required
+                 class="w-full px-6 py-5 rounded-xl bg-white/20 text-white placeholder-gray-300 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-400"/>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <input type="text" name="department" placeholder="Department" required
+                 class="w-full px-6 py-5 rounded-xl bg-white/20 text-white placeholder-gray-300 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-400"/>
+
+          <input type="text" name="contact" placeholder="Phone / WhatsApp" required
+                 class="w-full px-6 py-5 rounded-xl bg-white/20 text-white placeholder-gray-300 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-400"/>
+        </div>
+
+        <textarea name="skills" rows="4" placeholder="Your Skills (React, Figma, Python, etc.) - Optional"
+                  class="w-full px-6 py-5 rounded-xl bg-white/20 text-white placeholder-gray-300 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-400"></textarea>
+
+        <!-- Hidden fields -->
+        <input type="hidden" name="_subject" value="New Member Application - NIST Web Society">
+        <input type="hidden" name="_next" value="join.html?success=true">
+
+        <button type="submit" 
+                class="w-full bg-yellow-400 text-black text-2xl font-bold py-6 rounded-xl hover:bg-yellow-300 transform hover:scale-105 transition shadow-2xl flex items-center justify-center gap-3">
+          <i class="fas fa-paper-plane"></i>
+          Submit Application
+        </button>
+      </form>
+
+      <!-- Success Message -->
+      <div id="success" class="hidden mt-8 p-8 bg-green-600 rounded-2xl text-white text-center text-xl font-bold">
+        <i class="fas fa-check-circle text-5xl mb-4 block"></i>
+        Thank You! Your application has been sent.<br>
+        We'll contact you soon on WhatsApp!
+      </div>
+    </div>
+
+    <p class="text-center text-gray-300 mt-8 text-sm">
+      © 2025 NIST Web Society • All rights reserved
+    </p>
+  </div>
+
+  <script>
+    // Show success message if redirected back
+    if (window.location.search.includes('success')) {
+      document.getElementById('success').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
